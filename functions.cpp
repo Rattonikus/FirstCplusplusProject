@@ -16,17 +16,26 @@ using namespace std;
 const int MAGIC_NUMBER = 42;
 
 //function that just adds shit lmao
-int makeNumber(int);
+//in a function prototype, you dont need the name of the params, but you should put them in anyways
+int makeNumber(int userInput, int magicNumber = 42);
 
 int main()
 {
     int userNumber;
+    int magicNumber; 
     cout << "Give me a number, and i will magify it \n";
     cin >> userNumber;
-    cout << "Your lucky number is " << makeNumber(userNumber) << "\n";
+    cout << "Give me another number, and i will magify it \n";
+    cin >> magicNumber;
+    cout << "Your lucky number is " << makeNumber(userNumber, magicNumber) << "\n";
 }
 
-int makeNumber(int theNumber)
+int makeNumber(int theNumber, int magicNumber)
 {
-    return theNumber * MAGIC_NUMBER;
+    if (magicNumber == 0)
+    {
+        magicNumber = 42;
+    }
+
+    return theNumber * magicNumber;
 }
